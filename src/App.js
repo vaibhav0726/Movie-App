@@ -12,15 +12,14 @@ function App() {
   const [favorites, setFavorites] = useState([]);
   const [searchValue, setSearchValue] = useState("");
 
-  const getMovieRequestHandler = async () => {
-    const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=c0cb9123`;
-    const response = await fetch(url);
-    const responseJSON = await response.json(); // converts our http response to JSON
-    console.log(responseJSON);
-    if (responseJSON.Search) setMovies(responseJSON.Search);
-  };
-
   useEffect(() => {
+    const getMovieRequestHandler = async () => {
+      const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=c0cb9123`;
+      const response = await fetch(url);
+      const responseJSON = await response.json(); // converts our http response to JSON
+      console.log(responseJSON);
+      if (responseJSON.Search) setMovies(responseJSON.Search);
+    };
     getMovieRequestHandler();
   }, [searchValue]);
 
@@ -38,7 +37,7 @@ function App() {
 
   const addFavoriteMovie = (movie) => {
     for (let idx of favorites) {
-      if (idx.imdbID == movie.imdbID) {
+      if (idx.imdbID === movie.imdbID) {
         return;
       }
     }
