@@ -17,7 +17,6 @@ function App() {
       const url = `https://www.omdbapi.com/?s=${searchValue}&apikey=c0cb9123`;
       const response = await fetch(url);
       const responseJSON = await response.json(); // converts our http response to JSON
-      console.log(responseJSON);
       if (responseJSON.Search) setMovies(responseJSON.Search);
     };
     getMovieRequestHandler();
