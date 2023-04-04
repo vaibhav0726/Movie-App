@@ -14,7 +14,7 @@ function App() {
 
   useEffect(() => {
     const getMovieRequestHandler = async () => {
-      const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=c0cb9123`;
+      const url = `https://www.omdbapi.com/?s=${searchValue}&apikey=c0cb9123`;
       const response = await fetch(url);
       const responseJSON = await response.json(); // converts our http response to JSON
       console.log(responseJSON);
